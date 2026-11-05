@@ -1,7 +1,7 @@
 // Catálogo y reproductor de Devoracine.
 export const BASE_URL = 'https://devoracine.com';
 const HEADERS={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36",Referer:`${BASE_URL}/`,"Accept-Language":"es-ES,es;q=0.9"};
-export async function fetchHtml(url,options={}){const f=typeof kino!=="undefined"&&kino.fetch?kino.fetch.bind(kino):fetch;const r=await f(url,{...options,headers:{...HEADERS,...(options.headers||{})}});if(!r.ok)throw Error(`HTTP ${r.status} al solicitar ${url}`);return r.text()}
+export async function fetchHtml(url,options={}){if(typeof kino==='undefined'||typeof kino.fetch!=='function')throw Error('Kino fetch no disponible');const r=await kino.fetch(url,{...options,headers:{...HEADERS,...(options.headers||{})}});if(!r.ok)throw Error(`HTTP ${r.status} al solicitar ${url}`);return r.text()}
 const text=x=>String(x||'').replace(/<[^>]*>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
 const clean=x=>String(x||'').toLowerCase().replace(/[^a-z0-9_-]+/g,'-').replace(/^-|-$/g,'');
 export function parseCards(html, kind='movie') {const out=[],seen=new Set();const re=/<a\b[^>]*href=["'](https:\/\/devoracine\.com\/([^"'#?]+)\/?)["'][^>]*>([\s\S]*?)<\/a>/gi;let m;while((m=re.exec(html))){const ref=m[1],slug=clean(m[2]),inner=m[3];if(!slug||seen.has(slug)||/^(wp-|category|tag|author|feed|contacto|politica|terminos)/.test(slug))continue;const img=(inner.match(/<img\b[^>]*src=["']([^"']+)/i)||[])[1];if(!img)continue;seen.add(slug);let title=(inner.match(/(?:title|alt)=["']([^"']+)/i)||[])[1]||m[2].replace(/-/g,' ');title=text(title).replace(/\s*[-–|].*$/,'');out.push({id:slug,ref,title,kind,type:kind,poster:img,art:img,overview:undefined});}return out}

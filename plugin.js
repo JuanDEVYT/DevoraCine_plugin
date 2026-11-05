@@ -2,8 +2,8 @@
 var BASE_URL = "https://devoracine.com";
 var HEADERS = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36", Referer: `${BASE_URL}/`, "Accept-Language": "es-ES,es;q=0.9" };
 async function fetchHtml(url, options = {}) {
-  const f = typeof kino !== "undefined" && kino.fetch ? kino.fetch.bind(kino) : fetch;
-  const r = await f(url, { ...options, headers: { ...HEADERS, ...options.headers || {} } });
+  if (typeof kino === "undefined" || typeof kino.fetch !== "function") throw Error("Kino fetch no disponible");
+  const r = await kino.fetch(url, { ...options, headers: { ...HEADERS, ...options.headers || {} } });
   if (!r.ok) throw Error(`HTTP ${r.status} al solicitar ${url}`);
   return r.text();
 }
