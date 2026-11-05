@@ -33,7 +33,8 @@ async function catalog(path = "", kind = "movie") {
 }
 async function details(ref, kinoApi) {
   const html = await fetchHtml(ref);
-  const title = text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1]) || text((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1]).replace(/\s*[-|].*$/, "");
+  const rawTitle = text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1]) || text((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1]);
+  const title = rawTitle.replace(/\s*[|–-]\s*(?:Ver )?(?:Película|Serie|Peliculas|Series).*$/i, "").trim();
   const overview = text((html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)/i) || html.match(/<meta\s+content=["']([^"']+)["']\s+name=["']description/i) || [])[1]);
   const poster = (html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)/i) || [])[1] || "";
   let base = { title, overview, description: overview, poster, art: poster, backdrop: poster, kind: "movie", type: "movie", ref };
