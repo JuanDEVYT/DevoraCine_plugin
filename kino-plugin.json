@@ -1,7 +1,33 @@
 {
-  "id":"devoracine","name":"DevoraCine","version":"1.0.0","apiVersion":13,"entry":"plugin.js","icon":"icon.png",
-  "hosts":["devoracine.com","vimeus.com","image.tmdb.org"],"streamHosts":"any",
-  "capabilities":["search","home","browse","episodes","resolve","details"],"settings":[],
-  "theme":{"accent":"#C32424","onAccent":"#FFFFFF","background":"#0B1407","surface":"#132505","highlight":"#78A22F"},
-  "description":"DevoraCine para Kino: películas y series en español latino HD.","homepage":"https://devoracine.com/","repo":"JuanDEVYT/DevoraCine_plugin","consent":"Puede reproducir video desde cualquier servidor que indique"
+  "id": "devoracine",
+  "name": "DevoraCine",
+  "version": "1.0.0",
+  "apiVersion": 13,
+  "entry": "plugin.js",
+  "icon": "icon.png",
+  "hosts": [
+    "devoracine.com",
+    "vimeus.com",
+    "image.tmdb.org"
+  ],
+  "streamHosts": "any",
+  "capabilities": [
+    "search",
+    "home",
+    "browse",
+    "episodes",
+    "resolve"
+  ],
+  "settings": [],
+  "theme": {
+    "accent": "#C32424",
+    "onAccent": "#FFFFFF",
+    "background": "#0B1407",
+    "surface": "#132505",
+    "highlight": "#78A22F"
+  },
+  "description": "DevoraCine para Kino: películas y series en español latino HD.",
+  "homepage": "https://devoracine.com/",
+  "repo": "JuanDEVYT/DevoraCine_plugin",
+  "consent": "Puede reproducir video desde cualquier servidor que indique"
 }
