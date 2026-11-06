@@ -5,7 +5,7 @@ import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 const exec = promisify(execFile);
 
-describe("DevoraCine Plugin v1.1.0", () => {
+describe("DevoraCine Plugin v1.2.0", () => {
   it("plugin validation passes Kino SDK", async () => {
     const { stdout, stderr } = await exec("node", ["sdk/validate.mjs", ".", "--repo", "JuanDEVYT/DevoraCine_plugin"]);
     const out = (stdout || "") + "\n" + (stderr || "");

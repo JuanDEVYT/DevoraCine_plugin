@@ -27,7 +27,7 @@ const WORDS_RAW = {
   aboutTitle: ["Acerca de DevoraCine", "About DevoraCine"],
   aboutDesc: ["Catálogo y reproducción de Devoracine para Kino.", "Official HD catalog and playback plugin for Kino."],
   aboutAuthor: ["Creado por JuandreXter", "Created by JuandreXter"],
-  aboutVersion: ["Versión 1.1.0", "Version 8.5.0"],
+  aboutVersion: ["Versión 1.2.0", "Version 1.2.0"],
   watchNow: ["Reproducir", "Play"],
   moreInfo: ["Ver detalles", "More details"],
   brWatch: ["Reproducir", "Play"],

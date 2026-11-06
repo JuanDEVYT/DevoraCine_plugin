@@ -148,7 +148,7 @@ var WORDS_RAW = {
   aboutTitle: ["Acerca de DevoraCine", "About DevoraCine"],
   aboutDesc: ["Cat\xE1logo y reproducci\xF3n de Devoracine para Kino.", "Official HD catalog and playback plugin for Kino."],
   aboutAuthor: ["Creado por JuandreXter", "Created by JuandreXter"],
-  aboutVersion: ["Versi\xF3n 1.1.0", "Version 8.5.0"],
+  aboutVersion: ["Versi\xF3n 1.2.0", "Version 1.2.0"],
   watchNow: ["Reproducir", "Play"],
   moreInfo: ["Ver detalles", "More details"],
   brWatch: ["Reproducir", "Play"],
@@ -1046,7 +1046,7 @@ async function resolveDevora(ref) {
 }
 
 // src/plugin.js
-var VERSION = "1.1.0";
+var VERSION = "1.2.0";
 var PREFIX = `[DevoraCine v${VERSION}]`;
 console.log(`${PREFIX} Creado por JuandreXter`);
 var log = (...a) => console.log(PREFIX, ...a);

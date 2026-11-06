@@ -1,11 +1,11 @@
-// Plugin oficial de DevoraCine para Kino (v1.1.0)
+// Plugin oficial de DevoraCine para Kino (v1.2.0)
 import { makeBrowse } from "./browse/index.js";
 import {
   fetchHtml, parseCards, parseHeroSlides, catalog,
   details as getDetails, resolveDevora, BASE_URL,
 } from "./devoracine.js";
 
-const VERSION = "1.1.0";
+const VERSION = "1.2.0";
 const PREFIX = `[DevoraCine v${VERSION}]`;
 console.log(`${PREFIX} Creado por JuandreXter`);
 
